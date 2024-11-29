@@ -7,7 +7,7 @@ class Solution {
             return tmp;
         }
 
-        for (int j = 0; j < tmp.length(); j++) {
+        for (int j = 0; j <= tmp.length(); j++) {
             boolean flag = true;
             for (int i = 1; i < strs.length; i++) {
                 if (!strs[i].startsWith(tmp.substring(0, j))) {
