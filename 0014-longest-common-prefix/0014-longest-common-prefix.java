@@ -9,13 +9,14 @@ class Solution {
 
         for (int j = 0; j <= tmp.length(); j++) {
             boolean flag = true;
+            String str = tmp.substring(0, j);
             for (int i = 1; i < strs.length; i++) {
-                if (!strs[i].startsWith(tmp.substring(0, j))) {
+                if (strs[i].indexOf(str) != 0) {
                     flag = false;
                 }
             }
             if (flag) {
-                result = tmp.substring(0, j);
+                result = str;
             }
         }
         return result;
