@@ -33,8 +33,7 @@ class RandomizedSet {
     }
 
     public int getRandom() {
-        int ran = random.nextInt(this.map.size());
-        return list.get(ran);
+        return list.get(random.nextInt(this.map.size()));
     }
 }
 
