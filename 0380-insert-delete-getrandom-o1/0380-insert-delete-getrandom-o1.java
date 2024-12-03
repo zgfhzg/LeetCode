@@ -1,6 +1,7 @@
 class RandomizedSet {
     private HashMap<Integer, Integer> map = new HashMap();
     private Random random = new Random();
+    private List<Integer> list = new ArrayList();
 
     public RandomizedSet() {
 
@@ -11,6 +12,7 @@ class RandomizedSet {
         if (contains) {
             return false;
         }
+        this.list.add(val);
         this.map.put(val, val);
         return true;
     }
@@ -20,20 +22,18 @@ class RandomizedSet {
         if (!contains) {
             return false;
         }
+        for (int i = 0; i < this.list.size(); i++) {
+            if (list.get(i) == val) {
+                list.remove(i);
+                break;
+            }
+        }
         this.map.remove(val);
         return true;
     }
 
     public int getRandom() {
-        int ran = random.nextInt(this.map.size());
-        int i = 0;
-        for(Integer key : map.keySet()){
-            if (i == ran) {
-                return map.get(key);
-            }
-            i++;
-        }
-        return 0;
+        return list.get(random.nextInt(this.map.size()));
     }
 }
 
