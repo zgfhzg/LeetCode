@@ -6,17 +6,17 @@ class RandomizedSet {
     }
 
     public boolean insert(int val) {
-        boolean contains = this.set.contains(Integer.valueOf(val));
+        boolean contains = this.set.contains(val);
         if (!contains) {
-            this.set.add(Integer.valueOf(val));
+            this.set.add(val);
         }
         return !contains;
     }
 
     public boolean remove(int val) {
-        boolean contains = this.set.contains(Integer.valueOf(val));
+        boolean contains = this.set.contains(val);
         if (contains) {
-            this.set.remove(Integer.valueOf(val));
+            this.set.remove(val);
         }
         return contains;
     }
