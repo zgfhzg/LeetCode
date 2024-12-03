@@ -8,7 +8,8 @@ class RandomizedSet {
     }
 
     public boolean insert(int val) {
-        if (this.map.containsKey(val)) {
+        boolean contains = this.map.containsKey(val);
+        if (contains) {
             return false;
         }
         this.list.add(val);
@@ -17,7 +18,8 @@ class RandomizedSet {
     }
 
     public boolean remove(int val) {
-        if (!this.map.containsKey(val)) {
+        boolean contains = this.map.containsKey(val);
+        if (!contains) {
             return false;
         }
         for (int i = 0; i < this.list.size(); i++) {
@@ -31,7 +33,8 @@ class RandomizedSet {
     }
 
     public int getRandom() {
-        return list.get(random.nextInt(this.map.size()));
+        int ran = random.nextInt(this.map.size());
+        return list.get(ran);
     }
 }
 
