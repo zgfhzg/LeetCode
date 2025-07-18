@@ -13,15 +13,15 @@ class Solution {
         for (int i = 0; i < bank.length; i++) {
             if (diff(startGene, bank[i])) {
                 visited[i] = true;
-                bfs(bank[i], endGene, 1);
+                dfs(bank[i], endGene, 1);
                 visited[i] = false;
             }
         }
 
-        return result;
+        return result == 12 ? -1 : result;
     }
 
-    public void bfs(String start, String end, int count) {
+    public void dfs(String start, String end, int count) {
         if (end.equals(start)) {
             result = Math.min(result, count);
             return;
@@ -30,7 +30,7 @@ class Solution {
         for (int i = 0; i < temp.length; i++) {
             if (diff(start, temp[i]) && !visited[i]) {
                 visited[i] = true;
-                bfs(temp[i], end, count + 1);
+                dfs(temp[i], end, count + 1);
                 visited[i] = false;
             }
         }
